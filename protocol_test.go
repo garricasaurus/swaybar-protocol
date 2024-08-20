@@ -2,6 +2,7 @@ package swaybarprotocol
 
 import (
 	"strings"
+	"syscall"
 	"testing"
 )
 
@@ -9,8 +10,8 @@ func TestInit(t *testing.T) {
 	h := &Header{
 		Version:     1,
 		ClickEvents: true,
-		ContSignal:  18,
-		StopSignal:  19,
+		ContSignal:  syscall.SIGCONT,
+		StopSignal:  syscall.SIGSTOP,
 	}
 
 	w := &strings.Builder{}
